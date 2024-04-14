@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require("mongoose");
 const router = require("./routes/router");
+const authMiddleware = require("./middlewares/auth_middleware");
+const skipAUth = require("./middlewares/skip_auth");
 
 const app = express();
 
@@ -12,6 +14,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+// auth middleware
+app.use(skipAUth);
 
 // routes
 app.use("/", router);       
