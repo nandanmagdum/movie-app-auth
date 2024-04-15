@@ -69,8 +69,48 @@ const getFavouritesController = async(req, res) => {
     }
 }
 
+const removeAllFavController = async(req, res) => {
+    try {
+        const user = await userModel.findOne({email: req.email});
+        if(!user){
+            return res.status(400).json("User not found!");
+        }
+        const deleteAllIds = await userModel.findOneAndUpdate({email: user.email}, {$set : {favourites: []}}, {new: true});
+        if(!deleteAllIds){
+            return res.status(400).json("Error removing all favourites");
+        }
+        return res.status(200).json("Removed All Favourites");
+    } catch (error) {
+        console.error(error.message);
+        return res.status(400).json(error.message);
+    }
+}
+
+const addAllFavController = async(req, res) => {
+    const favs = req.body.favourites;
+    try {
+        const user = await userModel.findOne({email: req.email});
+        if(!user){
+            return res.status(400).json("User not found!");
+        }
+        const deleteAllIds = await userModel.findOneAndUpdate({email: user.email}, {$set : {favourites: []}}, {new: true});
+        if(!deleteAllIds){
+            return res.status(400).json("Error removing all favourites");
+        }
+        const addAllIds = await userModel.findOneAndUpdate({email: user.email}, {$set : {favourites: favs}}, {new: true});
+        if(!addAllIds){
+            return res.status(400).json("Error adding all favourites");
+        }
+        return res.status(200).json(user);
+    } catch (error) {
+        console.error(error.message);
+        return res.status(400).json(error.message);
+    }
+}
 module.exports = {
     addFavController,
     removeFavController,
-    getFavouritesController
+    getFavouritesController,
+    removeAllFavController,
+    addAllFavController
 }
