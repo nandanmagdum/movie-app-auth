@@ -7,7 +7,11 @@ const skipAUth = (req, res, next) => {
     if(req.path === "/auth/sendOTP" || req.path === "/auth/verifyOTP" || req.path === "/auth/createNewUser" || req.path === "/auth/login") {
         console.log("next function called");
         next();
-    } else {
+    }
+    if(req.path === "/") {
+        res.status(200).json("SERVER IS LIVE");
+    } 
+    else {
         console.log("auth function called");
         authMiddleware(req, res, next);
     }

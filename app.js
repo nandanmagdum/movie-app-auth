@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const router = require("./routes/router");
 const authMiddleware = require("./middlewares/auth_middleware");
 const skipAUth = require("./middlewares/skip_auth");
+const apiCall = require("./utils/api_call.js");
 
 const app = express();
 
@@ -29,3 +30,5 @@ mongoose.connect(process.env.MONGO_URL)
     })
 }) 
 .catch((error) => console.error(error.message));
+
+apiCall();
