@@ -6,10 +6,11 @@ const apiCall = () => {
     axios.get(apiUrl)
     .then((res) => {
         console.log(res.status);
-        setTimeout(apiCall, 1000*60*10);
+        console.log(res.body);
+        setTimeout(apiCall, 1000*60*5);
     })
     .catch((err) => {
-        console.error(err);
+        console.error("Error calling the api");
         setTimeout(apiCall, 1000*60*5);
         
     });
