@@ -18,26 +18,26 @@ const sendMailWithOtp = async(email, otp) => {
     try {
         const sendMail = await transporter.sendMail(
             {
-                from: "Atharv's Movie App <gceksmartcampus@gmail.com>",
+                from: "Nandan's Movie App <gceksmartcampus@gmail.com>",
                 to: email,
-                subject: "OTP for Atharv's Movie App",
+                subject: "OTP for Nandan's Movie App",
                 html: `
                 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atharv's Movie App OTP</title>
+    <title>Nandan's Movie App OTP</title>
 </head>
 <body>
     <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-        <h2>Welcome to Atharv's Movie App</h2>
+        <h2>Welcome to Nandan's Movie App</h2>
         <p>Hello,</p>
-        <p>You are receiving this email because you are trying to log in to Atharv's Movie App. Please use the following OTP to proceed:</p>
+        <p>You are receiving this email because you are trying to log in to Nandan's Movie App. Please use the following OTP to proceed:</p>
         <h1 style="font-size: 2em; text-align: center; padding: 20px 0;">${otp}</h1>
         <p>If you didn't request this OTP, please ignore this email.</p>
-        <p>Thank you for using Atharv's Movie App!</p>
-        <p>Best regards,<br>Atharv's Movie App Team</p>
+        <p>Thank you for using Nandan's Movie App!</p>
+        <p>Best regards,<br>Nandan's Movie App Team</p>
     </div>
 </body>
 </html>

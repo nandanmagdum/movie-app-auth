@@ -9,5 +9,4 @@ authRouter.post("/verifyOTP", authController.verifyOTPController);
 authRouter.post("/createNewUser", authController.createNewUserController);
 authRouter.post("/login", authController.loginUserController);
 
-
 module.exports = authRouter;
