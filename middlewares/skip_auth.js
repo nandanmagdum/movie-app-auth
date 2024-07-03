@@ -7,7 +7,7 @@ const skipAUth = (req, res, next) => {
     if(req.path === "/") {
         res.status(200).json("SERVER IS LIVE");
     } 
-    else if(req.path === "/auth/sendOTP" || req.path === "/auth/verifyOTP" || req.path === "/auth/createNewUser" || req.path === "/auth/login") {
+    else if(req.path === "/auth/sendOTP" || req.path === "/auth/verifyOTP"|| req.path === "/auth/check" || req.path === "/auth/createNewUser" || req.path === "/auth/login") {
         console.log("next function called");
         next();
     }

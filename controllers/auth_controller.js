@@ -133,10 +133,28 @@ const loginUserController = async(req, res) => {
         console.error(error.message);
         return res.status(400).json(error.message);
     }
+    
+    
+}
+
+const checkIfUserExsists = async(req, res) => {
+    const email = req.body.email;
+    try {
+        const user = await userModel.findOne({email: email});
+        if(user){
+            return res.status(200).json(true);
+        } else {
+            return res.status(200).json(false);
+        }
+    } catch (error) {
+        console.error(error.message);
+        return res.status(400).json(error.message);
+    }
 }
 module.exports = {
     sendOtpController,
     verifyOTPController,
     createNewUserController,
-    loginUserController
+    loginUserController,
+    checkIfUserExsists
 }
