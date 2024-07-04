@@ -144,7 +144,7 @@ const checkIfUserExsists = async(req, res) => {
             "email" : email
         });
         if(user){
-            return req.status(200).json("API checked properly");
+            return res.status(200).json("API checked properly");
         }
     } catch (error) {
         console.error(error.message);
