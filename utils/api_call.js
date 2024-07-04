@@ -8,11 +8,11 @@ const apiCall = () => {
         console.log(res.status);
         console.log(res.body);
         console.log("API CALLED TO STAY ACTIVE");
-        setTimeout(apiCall, 1000*60*5);
+        setTimeout(apiCall, 1000*60*15);
     })
     .catch((err) => {
         console.error("Error calling the api");
-        setTimeout(apiCall, 1000*60*5);
+        setTimeout(apiCall, 1000*60*15);
         
     });
 }

@@ -140,11 +140,11 @@ const loginUserController = async(req, res) => {
 const checkIfUserExsists = async(req, res) => {
     const email = req.body.email;
     try {
-        const user = await userModel.findOne({email: email});
+        const user = await userModel.findOne({
+            "email" : email
+        });
         if(user){
-            return res.status(200).json(true);
-        } else {
-            return res.status(200).json(false);
+            return req.status(200).json("API checked properly");
         }
     } catch (error) {
         console.error(error.message);
