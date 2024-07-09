@@ -6,8 +6,7 @@ const userRouter = express.Router();
 userRouter.patch("/addFavourite", addFavController);
 userRouter.patch("/removeFavourite", removeFavController);
 userRouter.post("/favourites", getFavouritesController);
-
 userRouter.patch("/removeAllFav", removeAllFavController);
-userRouter.patch("/addAllFav", addAllFavController);
+userRouter.post("/addAllFav", addAllFavController);
 
 module.exports = userRouter;
