@@ -13,7 +13,6 @@ const apiCall = () => {
     .catch((err) => {
         console.error("Error calling the api");
         setTimeout(apiCall, 1000*60*10);
-        
     });
 }
 
